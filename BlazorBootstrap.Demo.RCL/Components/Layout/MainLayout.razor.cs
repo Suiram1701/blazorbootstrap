@@ -24,6 +24,7 @@ public partial class MainLayout : MainLayoutBase
             new (){ Id = "404", Text = "Range Input", Href = "/form/range-input", IconName = IconName.Sliders, ParentId = "4" },
             new (){ Id = "405", Text = "Switch", Href = "/form/switch", IconName = IconName.ToggleOn, ParentId = "4" },
             new (){ Id = "406", Text = "Time Input", Href = "/form/time-input", IconName = IconName.ClockFill, ParentId = "4" },
+            new (){ Id = "407", Text = "Validation", Href = "/form/validation", IconName = IconName.ExclamationCircleFill, ParentId = "4" },
 
             new (){ Id = "5", Text = "Components", IconName = IconName.GearFill, IconColor = IconColor.Danger },
             new (){ Id = "500", Text = "Accordion", Href = "/accordion", IconName = IconName.ChevronBarExpand, ParentId = "5" },

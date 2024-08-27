@@ -7,6 +7,6 @@
 }
 @foreach (string message in EditContext.GetValidationMessages(_fieldIdentifier))
 {
-    <div id="@($"{Id}-{i}")" class="@ClassNames">@message</div>
+    <div id="@($"{Id}-{i}")" class="@ClassNames" style="@StyleNames">@message</div>
     i++;
 }

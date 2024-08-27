@@ -1,0 +1,42 @@
+@page "/validation"
+@page "/form/validation"
+
+<PageTitle>@title</PageTitle>
+
+<MetaTags PageUrl="@pageUrl" Title="@title" Description="@description" ImageUrl="@imageUrl" />
+
+<h1>Blazor Validation</h1>
+<div class="lead mb-3">@description</div>
+
+<CarbonAds />
+
+<SectionHeading Size="HeadingSize.H2" Text="Usage of ValidationFieldClassProvider" PageUrl="@pageUrl" HashTagName="fieldclassprovider" />
+<div class="mb-3">In the below example, <code>@("<ValidationFieldClassProvider />")</code> is used to show the valid or invalid state of the text input.</div>
+<Demo Type="typeof(Validation_Demo_01_FieldClassProvider)" Tabs />
+
+<SectionHeading Size="HeadingSize.H4" Text="Disable the valid state" PageUrl="@pageUrl" HashTagName="fieldclassprovider-validstate" />
+<div class="mb-3">In some cases you may don't want to show the valid state. To achieve this you have to set the <code>DisableValidState</code> parameter to <code>true</code>.</div>
+<Demo Type="typeof(Validation_Demo_02_FieldClassProviderValidState)" Tabs />
+
+<Callout Color="CalloutColor.Warning" Heading="NOTE">
+    <div>Both <code>@("<ValidationFeedback />")</code> and <code>@("<ValidFeedback />")</code> have to be placed directly after the assigned input element.</div>
+</Callout>
+
+<SectionHeading Size="HeadingSize.H2" Text="Usage of ValidationFeedback" PageUrl="@pageUrl" HashTagName="validationfeedback" />
+<div class="mb-3">In the below example, <code>@("<ValidationFeedback />")</code> is used to show the validation messages of an input element.</div>
+<Demo Type="typeof(Validation_Demo_03_ValidationFeedback)" Tabs />
+
+<SectionHeading Size="HeadingSize.H4" Text="Tooltip ValidationFeedback" PageUrl="@pageUrl" HashTagName="validationfeedback-tooltip" />
+<div class="mb-3">Alternatively to the feedback with the plain text below the input, also tooltips can be used to display the validation feedback. To achieve this set the <code>AsTooltip</code> property to <code>true</code>.</div>
+<Demo Type="typeof(Validation_Demo_04_ValidationFeedback_Tooltip)" Tabs />
+
+<SectionHeading Size="HeadingSize.H2" Text="Usage of ValidFeedback" PageUrl="@pageUrl" HashTagName="validfeedback" />
+<div class="mb-3">In the below example, <code>@("<ValidFeedback />")</code> is used to show a message if the input is valid. The <code>AsTooltip</code> property works for this component as well.</div>
+<Demo Type="typeof(Validation_Demo_05_ValidFeedback)" Tabs />
+
+@code {
+    private string pageUrl = "/validation";
+    private string title = "Blazor Validation Components";
+    private string description = "The Blazor Bootstrap components to display validation status and the validation messages within an EditContext.";
+    private string imageUrl = "";
+}

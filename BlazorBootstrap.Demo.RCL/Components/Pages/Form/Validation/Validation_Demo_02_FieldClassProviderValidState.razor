@@ -1,0 +1,23 @@
+@using System.ComponentModel.DataAnnotations
+
+<EditForm Model="_model">
+    <DataAnnotationsValidator />
+    <ValidationFieldClassProvider DisableValidState />
+
+    <TextInput @bind-Value="_model.Value"
+               Label="Test input"
+               HelpText="This input requires at least 3 characters." />
+
+    <button type="submit" class="btn btn-success mt-2">Submit</button>
+</EditForm>
+
+@code {
+    private readonly Model _model = new();
+
+    private class Model
+    {
+        [MinLength(3)]
+        [Required]
+        public string Value { get; set; } = "ABC";
+    }
+}
