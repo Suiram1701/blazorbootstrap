@@ -1,0 +1,12 @@
+@namespace BlazorBootstrap
+@inherits BlazorBootstrapComponentBase
+@typeparam TValue
+
+@{
+    int i = 0;
+}
+@foreach (string message in EditContext.GetValidationMessages(_fieldIdentifier))
+{
+    <div id="@($"{Id}-{i}")" class="@ClassNames">@message</div>
+    i++;
+}

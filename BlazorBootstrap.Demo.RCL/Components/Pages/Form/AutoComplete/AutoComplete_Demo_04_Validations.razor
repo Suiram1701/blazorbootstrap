@@ -1,21 +1,8 @@
 ﻿@using System.ComponentModel.DataAnnotations
 
-<style>
-    .valid.modified:not([type=checkbox]) {
-        outline: 1px solid #26b050;
-    }
-
-    .invalid {
-        outline: 1px solid red;
-    }
-
-    .validation-message {
-        color: red;
-    }
-</style>
-
 <EditForm EditContext="@_editContext" OnValidSubmit="HandleOnValidSubmit">
     <DataAnnotationsValidator />
+    <ValidationFieldClassProvider />
 
     <div class="form-group row mb-2">
         <label class="col-md-2 col-form-label">Customer:</label>
@@ -26,7 +13,7 @@
                           PropertyName="CustomerName"
                           Placeholder="Search a customer..."
                           OnChanged="(Customer2 customer) => OnAutoCompleteChanged(customer)" />
-            <ValidationMessage For="@(() => customerAddress.CustomerName)" />
+            <ValidationFeedback For="() => customerAddress.CustomerName" />
         </div>
     </div>
 
@@ -34,7 +21,7 @@
         <label class="col-md-2 col-form-label">Address:</label>
         <div class="col-md-10">
             <InputText class="form-control" @bind-Value="customerAddress.Address" />
-            <ValidationMessage For="@(() => customerAddress.Address)" />
+            <ValidationFeedback For="() => customerAddress.Address" />
         </div>
     </div>
 

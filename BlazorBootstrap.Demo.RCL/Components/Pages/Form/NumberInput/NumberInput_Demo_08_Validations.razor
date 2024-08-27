@@ -1,27 +1,14 @@
 ﻿@using System.ComponentModel.DataAnnotations
 
-<style>
-    .valid.modified:not([type=checkbox]) {
-        outline: 1px solid #26b050;
-    }
-
-    .invalid {
-        outline: 1px solid red;
-    }
-
-    .validation-message {
-        color: red;
-    }
-</style>
-
 <EditForm EditContext="@editContext" OnValidSubmit="HandleOnValidSubmit">
     <DataAnnotationsValidator />
+    <ValidationFieldClassProvider />
 
     <div class="form-group row mb-3">
         <label class="col-md-2 col-form-label">Item Price: <span class="text-danger">*</span></label>
         <div class="col-md-10">
             <NumberInput TValue="decimal?" Value="invoice.Price" ValueExpression="() => invoice.Price" ValueChanged="(value) => PriceChanged(value)" Placeholder="Enter price" />
-            <ValidationMessage For="@(() => invoice.Price)" />
+            <ValidationFeedback For="@(() => invoice.Price)" />
         </div>
     </div>
 
@@ -29,7 +16,7 @@
         <label class="col-md-2 col-form-label">Item Discount:</label>
         <div class="col-md-10">
             <NumberInput TValue="decimal?" Value="invoice.Discount" ValueExpression="() => invoice.Discount" ValueChanged="(value) => DiscountChanged(value)" Placeholder="Enter discount" />
-            <ValidationMessage For="@(() => invoice.Discount)" />
+            <ValidationFeedback For="@(() => invoice.Discount)" />
         </div>
     </div>
 
@@ -37,7 +24,7 @@
         <label class="col-md-2 col-form-label">Total Amount: <span class="text-danger">*</span></label>
         <div class="col-md-10">
             <NumberInput TValue="decimal?" @bind-Value="invoice.Total" Disabled="true" Placeholder="Enter total" />
-            <ValidationMessage For="@(() => invoice.Total)" />
+            <ValidationFeedback For="@(() => invoice.Total)" />
         </div>
     </div>
 

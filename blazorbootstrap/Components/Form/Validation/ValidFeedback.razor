@@ -1,0 +1,8 @@
+@namespace BlazorBootstrap
+@inherits BlazorBootstrapComponentBase
+@typeparam TValue
+
+@if (!EditContext.GetValidationMessages(_fieldIdentifier).Any())
+{
+    <div id="@Id" class="@ClassNames">@Message</div>
+}

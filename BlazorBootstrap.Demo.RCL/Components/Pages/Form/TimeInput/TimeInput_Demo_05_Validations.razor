@@ -1,27 +1,14 @@
 ﻿@using System.ComponentModel.DataAnnotations
 
-<style>
-    .valid.modified:not([type=checkbox]) {
-        outline: 1px solid #26b050;
-    }
-
-    .invalid {
-        outline: 1px solid red;
-    }
-
-    .validation-message {
-        color: red;
-    }
-</style>
-
 <EditForm EditContext="@editContext" OnValidSubmit="HandleValidSubmit" novalidate>
     <DataAnnotationsValidator />
+    <ValidationFieldClassProvider />
 
     <div class="form-group row mb-3">
         <label class="col-md-2 col-form-label">Flight Number: <span class="text-danger">*</span></label>
         <div class="col-md-10">
             <InputText class="form-control" @bind-Value="flightForm.FlightNumber" Placeholder="Enter Flight Number" />
-            <ValidationMessage For="@(() => flightForm.FlightNumber)" />
+            <ValidationFeedback For="@(() => flightForm.FlightNumber)" />
         </div>
     </div>
 
@@ -29,7 +16,7 @@
         <label class="col-md-2 col-form-label">Departure Date: <span class="text-danger">*</span></label>
         <div class="col-md-10">
             <DateInput TValue="DateOnly?" class="form-control" @bind-Value="flightForm.DepartureDate" />
-            <ValidationMessage For="@(() => flightForm.DepartureDate)" />
+            <ValidationFeedback For="@(() => flightForm.DepartureDate)" />
         </div>
     </div>
 
@@ -37,7 +24,7 @@
         <label class="col-md-2 col-form-label">Departure Time: <span class="text-danger">*</span></label>
         <div class="col-md-10">
             <TimeInput TValue="TimeOnly?" @bind-Value="flightForm.DepartureTime" />
-            <ValidationMessage For="@(() => flightForm.DepartureTime)" />
+            <ValidationFeedback For="@(() => flightForm.DepartureTime)" />
         </div>
     </div>
 
@@ -45,7 +32,7 @@
         <label class="col-md-2 col-form-label">Arrival Date: <span class="text-danger">*</span></label>
         <div class="col-md-10">
             <DateInput TValue="DateOnly?" class="form-control" @bind-Value="flightForm.ArrivalDate" />
-            <ValidationMessage For="@(() => flightForm.ArrivalDate)" />
+            <ValidationFeedback For="@(() => flightForm.ArrivalDate)" />
         </div>
     </div>
 
@@ -53,7 +40,7 @@
         <label class="col-md-2 col-form-label">Arrival Time: <span class="text-danger">*</span></label>
         <div class="col-md-10">
             <TimeInput TValue="TimeOnly?" @bind-Value="flightForm.ArrivalTime" />
-            <ValidationMessage For="@(() => flightForm.ArrivalTime)" />
+            <ValidationFeedback For="@(() => flightForm.ArrivalTime)" />
         </div>
     </div>
 
