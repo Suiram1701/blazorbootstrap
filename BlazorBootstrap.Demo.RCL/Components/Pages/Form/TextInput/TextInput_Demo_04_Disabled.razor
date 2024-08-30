@@ -1,0 +1,26 @@
+<div>
+    <TextInput Class="mb-3" Value="Not editable" Label="Always disabled" Disabled />
+
+    <TextInput Class="mb-1" @ref="_input" Label="Toggle disable" Placeholder="Any value" />
+    <div class="d-flex">
+        <Button Color="ButtonColor.Primary" @onclick="() => _input.Enable()">Enable</Button>
+        <Button Class="mx-1" Color="ButtonColor.Danger" @onclick="() => _input.Disable()">Disable</Button>
+        <Button Color="ButtonColor.Secondary" @onclick="ToggleInput">Toggle</Button>
+    </div>
+</div>
+
+@code{
+    private TextInput _input = default!;
+
+    private void ToggleInput()
+    {
+        if (_input.Disabled)
+        {
+            _input.Enable();
+        }
+        else
+        {
+            _input.Disable();
+        }
+    }
+}

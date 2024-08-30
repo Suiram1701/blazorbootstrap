@@ -1,0 +1,50 @@
+@page "/textInput"
+@page "/form/textInput"
+
+<PageTitle>@title</PageTitle>
+
+<MetaTags PageUrl="@pageUrl" Title="@title" Description="@description" ImageUrl="@imageUrl" />
+
+<h1>Blazor TextInput</h1>
+<div class="lead mb-3">@description</div>
+
+<CarbonAds />
+
+<SectionHeading Size="HeadingSize.H2" Text="Basic usage" PageUrl="@pageUrl" HashTagName="usage" />
+<div class="mb-2">Use <code>Label</code> and <code>Placeholder</code> parameters to show basic information about the input. Additionally <code>HelpText</code> can be used to show more information.</div>
+<Demo Type="typeof(TextInput_Demo_01_Usage)" Tabs />
+
+<SectionHeading Size="HeadingSize.H2" Text="Input types" PageUrl="@pageUrl" HashTagName="types" />
+<div class="mb-2">
+    The <code>@("<TextInput />")</code> component supports the input types <code>@(TextInputType.Text)</code> (used by default),
+    <code>@(TextInputType.Email)</code>, <code>@(TextInputType.Password)</code> and <code>@(TextInputType.Url)</code>.
+    Only <code>@(TextInputType.Password)</code> affect the visual style. The other ones are used for client-side validation.
+</div>
+<Demo Type="typeof(TextInput_Demo_02_Types)" Tabs />
+
+<SectionHeading Size="HeadingSize.H2" Text="Sizes" PageUrl="@pageUrl" HashTagName="sizes" />
+<div class="mb-2">The sizes <code>@(InputSize.Sm)</code> (small), <code>@(InputSize.Default)</code> (used by default) and <code>@(InputSize.Lg)</code> (large) are available.</div>
+<Demo Type="typeof(TextInput_Demo_03_Sizes)" Tabs />
+
+<SectionHeading Size="HeadingSize.H2" Text="Disabled" PageUrl="@pageUrl" HashTagName="disabled" />
+<div class="mb-2">Use the <code>Disabled</code> parameter or the <code>@("Enable()")</code>/<code>@("Disabled()")</code> method to enable or disable the input.</div>
+<Demo Type="typeof(TextInput_Demo_04_Disabled)" Tabs />
+
+<SectionHeading Size="HeadingSize.H2" Text="Readonly" PageUrl="@pageUrl" HashTagName="readonly" />
+<div class="mb-2">The <code>Readonly</code> parameter can be used to make the input not editable.</div>
+<Demo Type="typeof(TextInput_Demo_05_Readonly)" Tabs />
+
+<Callout Color="CalloutColor.Info" Heading="INFO">
+    The difference between a disabled and a readonly input is that the user is still be able to focus and select a readonly input, while a disabled input cannot.
+</Callout>
+
+<SectionHeading Size="HeadingSize.H2" Text="Focus" PageUrl="@pageUrl" HashTagName="focus" />
+<div class="mb-2"><code>FocusAsync()</code> can be used to focus the element in the browser.</div>
+<Demo Type="typeof(TextInput_Demo_06_Focus)" Tabs />
+
+@code {
+    private string pageUrl = "/textInput";
+    private string title = "Blazor TextInput Component";
+    private string description = "The Blazor Bootstrap TextInput component is a simple text input in the Bootstrap style.";
+    private string imageUrl = "";
+}

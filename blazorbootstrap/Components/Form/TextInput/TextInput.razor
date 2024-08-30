@@ -1,0 +1,22 @@
+@namespace BlazorBootstrap
+@inherits InputComponentBase<string>
+
+@if (!string.IsNullOrWhiteSpace(Label))
+{
+    <label for="@Id" class="form-label">@Label</label>
+}
+<input
+    @ref="_elementReference"
+    id="@Id"
+    type="@(Type.ToString().ToLower())"
+    class="@ClassNames"
+    style="@StyleNames"
+    value="@Value"
+    placeholder="@Placeholder"
+    disabled="@Disabled"
+    @onchange="ValueChangedAsync"
+    @attributes="@AdditionalAttributes" />
+@if (!string.IsNullOrWhiteSpace(HelpText))
+{
+    <div id="@($"{Id}-desc")" class="form-text">@HelpText</div>
+}

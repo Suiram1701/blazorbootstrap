@@ -1,0 +1,8 @@
+<div>
+    <TextInput @bind-Value="TextValue" Label="The label of the input" Placeholder="Example value" HelpText="This is a simple help text displayed below the input." />
+    <span class="mt-4">Input value: @TextValue</span>
+</div>
+
+@code{
+    private string TextValue { get; set; } = "A test value";
+}

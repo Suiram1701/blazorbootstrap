@@ -1,0 +1,11 @@
+<TextInput @ref="_input" Class="mb-2" Label="Focusable input" Placeholder="Example value" />
+<Button Color="ButtonColor.Primary" @onclick="FocusInputAsync">Focus</Button>
+
+@code {
+    private TextInput _input = default!;
+
+    private async Task FocusInputAsync()
+    {
+        await _input.FocusAsync().ConfigureAwait(false);
+    }
+}
